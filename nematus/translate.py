@@ -152,6 +152,12 @@ def main(models, source_file, saveto, save_alignment=None, k=5,
     word_idict_trg[0] = '<eos>'
     word_idict_trg[1] = 'UNK'
 
+    print 'input dict'
+    print word_idict[:20]
+
+    print 'output dict'
+    print word_idict_trg[:20]
+
     # create input and output queues for processes
     queue = Queue()
     rqueue = Queue()
