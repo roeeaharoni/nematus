@@ -732,7 +732,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                 next_p[i][:,1] = -numpy.inf
 
             # avoid generating words from the input sequence
-            for input_word_id in x:
+            for input_word_id in x[:-1]:
                 next_p[i][:,input_word_id] = -numpy.inf
 
         if stochastic:
