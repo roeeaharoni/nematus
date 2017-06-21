@@ -730,6 +730,11 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
 
             if suppress_unk:
                 next_p[i][:,1] = -numpy.inf
+
+            # avoid generating words from the input sequence
+            for input_word_id in x:
+                next_p[i][:,input_word_id] = -numpy.inf
+
         if stochastic:
             #batches are not supported with argmax: output data structure is different
             if argmax:
