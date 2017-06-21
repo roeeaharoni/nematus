@@ -795,7 +795,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
             cand_flat = cand_scores.flatten()
             probs_flat = probs.flatten()
             ranks_flat = cand_flat.argpartition(k-dead_k-1)[:(k-dead_k)]
-            print ranks_flat
+            # print ranks_flat
 
             #averaging the attention weights accross models
             if return_alignment:
