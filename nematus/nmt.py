@@ -660,6 +660,8 @@ def build_full_sampler(tparams, options, use_noise, trng, greedy=False):
 def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                stochastic=True, argmax=False, return_alignment=False, suppress_unk=False,
                return_hyp_graph=False):
+    print 'input word ids:'
+    print x
 
     # k is the beam size we have
     if k > 1 and argmax:
@@ -731,9 +733,8 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
             if suppress_unk:
                 next_p[i][:,1] = -numpy.inf
 
+            # in every timestep
             # avoid generating words from the input sequence
-            print 'input word ids:'
-            print x
             # go though source indices
             for input_word_id in x[:-1]:
                 # -2 since source has 2en,2de and these are now trg indices
