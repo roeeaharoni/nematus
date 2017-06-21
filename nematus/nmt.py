@@ -732,7 +732,8 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                 next_p[i][:,1] = -numpy.inf
 
             # avoid generating words from the input sequence
-            # print x
+            print 'input word ids:'
+            print x
             # go though source indices
             for input_word_id in x[:-1]:
                 # -2 since source has 2en,2de and these are now trg indices
@@ -884,6 +885,8 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
     if not return_alignment:
         alignment = [None for i in range(len(sample))]
 
+    print 'output ids'
+    print sample
     return sample, sample_score, sample_word_probs, alignment, hyp_graph
 
 
