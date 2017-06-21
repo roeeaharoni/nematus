@@ -732,8 +732,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                 next_p[i][:,1] = -numpy.inf
 
             # avoid generating words from the input sequence
-            print x
-
+            # print x
             # go though source indices
             for input_word_id in x[:-1]:
                 # -2 since source has 2en,2de and these are now trg indices
