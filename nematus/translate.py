@@ -154,11 +154,11 @@ def main(models, source_file, saveto, save_alignment=None, k=5,
 
     print 'input dict'
     for i in xrange(20):
-        print word_idict[i]
+        print i, " ", word_idict[i]
 
     print 'output dict'
     for i in xrange(20):
-        print word_idict_trg[i]
+        print i, " ", word_idict_trg[i]
 
     # create input and output queues for processes
     queue = Queue()
