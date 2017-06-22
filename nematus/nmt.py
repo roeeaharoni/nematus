@@ -661,8 +661,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                stochastic=True, argmax=False, return_alignment=False, suppress_unk=False,
                return_hyp_graph=False):
     print 'input word ids:'
-    print x
-    print 'input dim is {}'.format(x.shape)
+    print x.flatten()
 
     # k is the beam size we have
     if k > 1 and argmax:
