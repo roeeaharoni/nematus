@@ -733,6 +733,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
             if suppress_unk:
                 next_p[i][:,1] = -numpy.inf
 
+            # my code
             # in every timestep
             # avoid generating words from the input sequence if not super common
             # go though source indices
@@ -746,7 +747,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                     continue
                 # -2 since source has 2en,2de and these are now trg indices
                 index = input_word_id - 2
-                next_p[i][:, index] = next_p[i][:, index] / 1
+                next_p[i][:, index] = next_p[i][:, index] / 20
                 print 'input word probs in output:'
                 print next_p[i][:, index]
 
