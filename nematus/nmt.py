@@ -736,9 +736,11 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
             # in every timestep
             # avoid generating words from the input sequence
             # go though source indices
-            for input_word_id in x[:-1]:
+            # TODO: why not skipping source words???????
+            next_p[i][:, 4] = -numpy.inf
+            # for input_word_id in x[:-1]:
                 # -2 since source has 2en,2de and these are now trg indices
-                next_p[i][:,input_word_id-2] = -numpy.inf
+                # next_p[i][:,input_word_id-2] = -numpy.inf
 
         if stochastic:
             #batches are not supported with argmax: output data structure is different
