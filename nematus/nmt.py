@@ -740,11 +740,12 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
 
             # supress the word "the"
             # next_p[i][:, 4] = -numpy.inf
-            print 'supressing {}'.format(input_ids)
-            for input_word_id in input_ids[:-1]:
-                index = int(input_word_id)-2
-                print 'supressing {}'.format(index)
+            supressed = x.flatten()[:-1]
+            print 'supressing {}'.format(supressed)
+            for input_word_id in supressed:
                 # -2 since source has 2en,2de and these are now trg indices
+                index = input_word_id - 2
+                # print 'supressing {}'.format(index)
                 next_p[i][:, index] = -numpy.inf
 
         if stochastic:
