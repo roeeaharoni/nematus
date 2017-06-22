@@ -894,8 +894,8 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
     if not return_alignment:
         alignment = [None for i in range(len(sample))]
 
-    print 'output ids'
-    print sample
+    # print 'output ids'
+    # print sample
     return sample, sample_score, sample_word_probs, alignment, hyp_graph
 
 

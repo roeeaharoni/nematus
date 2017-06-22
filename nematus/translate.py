@@ -269,8 +269,10 @@ def main(models, source_file, saveto, save_alignment=None, k=5,
 		renderer.wordify(word_idict_trg)
                 renderer.save_png(return_hyp_graph, detailed=True, highlight_best=True)
             saveto.write(_seqs2words(samples) + "\n")
-            if i%100==0:
+            if i%1==0:
+                print 'input:'
                 print source_sentences[i]
+                print 'output:'
                 print _seqs2words(samples) + "\n"
             if print_word_probabilities:
                 for prob in word_probs:
