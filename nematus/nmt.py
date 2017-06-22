@@ -739,10 +739,12 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
             # TODO: why not skipping source words???????
 
             # supress the word "the"
-            next_p[i][:, 4] = -numpy.inf
-            # for input_word_id in x[:-1]:
-            #     # -2 since source has 2en,2de and these are now trg indices
-            #     next_p[i][:,int(input_word_id)-2] = -numpy.inf
+            # next_p[i][:, 4] = -numpy.inf
+            for input_word_id in x[:-1]:
+                index = int(input_word_id)-2
+                print 'supressing {}'.format(index)
+                # -2 since source has 2en,2de and these are now trg indices
+                next_p[i][:, index] = -numpy.inf
 
         if stochastic:
             #batches are not supported with argmax: output data structure is different
