@@ -662,6 +662,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                return_hyp_graph=False):
     print 'input word ids:'
     print x
+    input_ids = x
 
     # k is the beam size we have
     if k > 1 and argmax:
@@ -740,8 +741,8 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
 
             # supress the word "the"
             # next_p[i][:, 4] = -numpy.inf
-            print 'supressing {}'.format(x[:-1])
-            for input_word_id in x[:-1]:
+            print 'supressing {}'.format(input_ids[:-1])
+            for input_word_id in input_ids[:-1]:
                 index = int(input_word_id)-2
                 print 'supressing {}'.format(index)
                 # -2 since source has 2en,2de and these are now trg indices
