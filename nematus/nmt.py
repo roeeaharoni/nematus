@@ -662,7 +662,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                return_hyp_graph=False):
     print 'input word ids:'
     print x
-    input_ids = x
+    print 'input dim is {}'.format(x.shape)
 
     # k is the beam size we have
     if k > 1 and argmax:
