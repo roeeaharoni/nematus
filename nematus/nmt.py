@@ -746,8 +746,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                     continue
                 # -2 since source has 2en,2de and these are now trg indices
                 index = input_word_id - 2
-                # print 'supressing {}'.format(index)
-                next_p[i][:, index] = next_p[i][:, index] / 10
+                next_p[i][:, index] = next_p[i][:, index] / 1
 
         if stochastic:
             #batches are not supported with argmax: output data structure is different
