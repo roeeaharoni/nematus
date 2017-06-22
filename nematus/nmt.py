@@ -741,7 +741,7 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
 
             # supress the word "the"
             # next_p[i][:, 4] = -numpy.inf
-            print 'supressing {}'.format(input_ids[:-1])
+            print 'supressing {}'.format(input_ids)
             for input_word_id in input_ids[:-1]:
                 index = int(input_word_id)-2
                 print 'supressing {}'.format(index)
