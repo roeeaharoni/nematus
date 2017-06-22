@@ -734,15 +734,16 @@ def gen_sample(f_init, f_next, x, trng=None, k=1, maxlen=30,
                 next_p[i][:,1] = -numpy.inf
 
             # in every timestep
-            # avoid generating words from the input sequence
+            # avoid generating words from the input sequence if not super common
             # go though source indices
-            # TODO: why not skipping source words???????
-
             # supress the word "the"
             # next_p[i][:, 4] = -numpy.inf
             supressed = x.flatten()[:-1]
             # print 'supressing {}'.format(supressed)
             for input_word_id in supressed:
+                # if not super common (function word)
+                if(input_word_id < 100):
+                    continue
                 # -2 since source has 2en,2de and these are now trg indices
                 index = input_word_id - 2
                 # print 'supressing {}'.format(index)
