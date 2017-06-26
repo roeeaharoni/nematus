@@ -152,12 +152,12 @@ def main(models, source_file, saveto, save_alignment=None, k=5,
     word_idict_trg[0] = '<eos>'
     word_idict_trg[1] = 'UNK'
 
-    print 'input dict'
-    for i in xrange(20):
+    print 'input dict - 100 most common'
+    for i in xrange(100):
         print i, " ", word_idict[i]
 
-    print 'output dict'
-    for i in xrange(20):
+    print 'output dict - 100 most common'
+    for i in xrange(100):
         print i, " ", word_idict_trg[i]
 
     # create input and output queues for processes
